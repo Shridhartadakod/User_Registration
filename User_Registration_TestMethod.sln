@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User_Registration_TestMethod", "User_Registration_TestMethod\User_Registration_TestMethod.csproj", "{A4D22794-F7C5-4076-BE47-959EBF997603}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email_Testing", "Email_Testing\Email_Testing.csproj", "{6759991A-049A-49AE-80A6-22AF3931C94E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A4D22794-F7C5-4076-BE47-959EBF997603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4D22794-F7C5-4076-BE47-959EBF997603}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4D22794-F7C5-4076-BE47-959EBF997603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6759991A-049A-49AE-80A6-22AF3931C94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6759991A-049A-49AE-80A6-22AF3931C94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6759991A-049A-49AE-80A6-22AF3931C94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6759991A-049A-49AE-80A6-22AF3931C94E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
