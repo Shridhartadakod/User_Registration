@@ -11,6 +11,12 @@ namespace User_Registration_TestMethod
         static void Main(string[] args)
         {
             Console.WriteLine("User registration program:");
+            Console.WriteLine("==========Welcome To User Registration===========");
+            //Creating object od class
+            Registration registration = new Registration();
+            registration.FirstName();
+            registration.LastName();
+            Console.ReadKey();
         }
     }
 }
