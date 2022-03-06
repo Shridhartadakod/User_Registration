@@ -16,7 +16,8 @@ namespace User_Registration_TestMethod
             Registration registration = new Registration();
             registration.FirstName();
             registration.LastName();
-            registration.EmailId();   
+            registration.EmailId();
+            registration.MobileNumber();
             Console.ReadKey();
         }
     }
