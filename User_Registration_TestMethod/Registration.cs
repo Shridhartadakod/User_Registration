@@ -60,6 +60,18 @@ namespace User_Registration_TestMethod
         }
 
 
+        public void Password()
+        {
+            Console.WriteLine("Enter the password = ");
+            string password = Console.ReadLine();
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])(A-Za-z\d$!$%*?&]{8,}$";
+
+            if (Validate(password, pattern))
+                Console.WriteLine("The entered password is valid!!");
+            else
+                Console.WriteLine("Please enter the valid password..");
+        }
+
 
         //Creating method to check validation
         public bool Validate(string info, string Pattern)
