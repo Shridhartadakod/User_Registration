@@ -9,69 +9,60 @@ namespace User_Registration_TestMethod
 {
     public class Registration
     {
-        public void FirstName()
-        {
-            Console.Write("Enter the name = ");
-            string name = Console.ReadLine();
-            string Pattern = "^[A-Z][a-zA-Z]{2,}$";
+        public const string NAME_PATTERN = @"^[A-Z][a-zA-Z]{2,}$";
+        public const string EMAIL_PATTERN = @"^[A-Za-z0-9]{3,}([\.\-\+][A-Za-z0-9]{3,})?[@][a-zA-Z0-9]{1,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2,})?$";
+        public const string MOBILE_PATTERN = @"^[0-9]{2}[ ][0-9]{10}$";
+        public const string PASSWORD_PATTERN = @"^(?!.*[!@#&()–\[{}\]:;',?/*~$^+=<>].*[!@#&()–\[{}\]:;',?/*~$^+=<>])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
 
-            if (Validate(name, Pattern))
-                Console.WriteLine("The entered name is valid!!");
-            else
-                Console.WriteLine("Please enter the valid name..");
+        // Registration details of user
+        private string firstName;
+        private string lastName;
+        private string email;
+        private string mobile;
+        private string password;
+
+        /// <summary>
+        /// Gets the information from user.
+        /// </summary>
+        public void GetInfo()
+        {
+            firstName = GetValidInfo("First Name: ", NAME_PATTERN);
+            lastName = GetValidInfo("Last Name: ", NAME_PATTERN);
+            email = GetValidInfo("Email: ", EMAIL_PATTERN);
+            mobile = GetValidInfo("Mobile: ", MOBILE_PATTERN);
+            password = GetValidInfo("Password: ", PASSWORD_PATTERN);
         }
 
-        //Creating method to check validation for last name
-        public void LastName()
+        /// <summary>
+        /// Gets the valid information from user.
+        /// <para>based on the pattern, this ensures the user enters valid info pattern</para>
+        /// </summary>
+        /// <returns>A valid info string</returns>
+        private static string GetValidInfo(string message, string pattern)
         {
-            Console.WriteLine("Enter the last name = ");
-            string name = Console.ReadLine();
-            string pattern = "^[A-Z][a-zA-Z]{2,}$";
-            if (Validate(name, pattern))
-                Console.WriteLine("The entered last name is valid!!");
-            else
-                Console.WriteLine("Please enter the valid last name..");
+            string info;
+            try
+            {
+                do
+                {
+                    Console.Write(message);
+                    info = Console.ReadLine();
+                    if (IsValid(info, pattern))
+                        return info;
+                    else
+                        Console.WriteLine("Invalid!");
+                } while (true);
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Cannot give empty or null information");
+            }
+            catch
+            {
+                Console.WriteLine("Unkown error occured");
+            }
+            return null;
         }
-
-        //Creating method to check validation for email id
-        public void EmailId()
-        {
-            Console.Write("Enter the email id = ");
-            string emailId = Console.ReadLine();
-            string pattern = "^[A-Za-z0-9]{3,}([.][A-Za-z0-9]{3,})?[@][a-zA-Z]{2,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2})?$";
-
-            if (Validate(emailId, pattern))
-                Console.WriteLine("The entered email id is valid!!");
-            else
-                Console.WriteLine("Please enter the valid email id..");
-        }
-
-        //Creating method to check validation for mobile number
-        public void MobileNumber()
-        {
-            Console.WriteLine("Enter the mobile number = ");
-            string mobileNumber = Console.ReadLine();
-            string pattern = "^([0-9]{2}[ ]){0,1}[0-9]{10}$";
-
-            if (Validate(mobileNumber, pattern))
-                Console.WriteLine("The entered mobile number is valid!!");
-            else
-                Console.WriteLine("Please enter the valid mobile number..");
-        }
-
-
-        public void Password()
-        {
-            Console.WriteLine("Enter the password = ");
-            string password = Console.ReadLine();
-            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])(A-Za-z\d$!$%*?&]{8,}$";
-
-            if (Validate(password, pattern))
-                Console.WriteLine("The entered password is valid!!");
-            else
-                Console.WriteLine("Please enter the valid password..");
-        }
-
 
         //Creating method to check validation
         public bool Validate(string info, string Pattern)
